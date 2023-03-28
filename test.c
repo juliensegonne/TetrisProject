@@ -1,0 +1,1 @@
+./configure --prefix=/home/s/segonne/In104Projet/SDL-main
