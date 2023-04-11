@@ -2,7 +2,7 @@
 
 
 void init_graphics() {
-
+    window = SDL_CreateWindow("SDL2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 }
 
 void setRenderChanged() {
