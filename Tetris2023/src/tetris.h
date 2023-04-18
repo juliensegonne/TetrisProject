@@ -32,11 +32,11 @@ typedef struct {
 } Tetromino_Movement;
 
 typedef enum {
-
+    UP,LEFT,RIGHT,DOWN
 } Tetris_Action;
 
 typedef enum {
-
+    BLUE,GREEN,PURPLE,WHITE,RED
 } Color_Block;
 
 // default tetris action
