@@ -1,11 +1,8 @@
-tetris
-============
+This code aims to build a tetris game using the SDL library.
 
-A simple tetris game implemented in C using SDL 2.x.
-This is just a toy project to play with and learn SDL 2.x.
+The playfield and the score are displayed in a window created with SDL.
+A random tetromino (shape and color) is generated at the top of the playfield and must be placed at the bottom. 
+It is falling and can be controlled with the keyboard.
 
 
-Install SDL 2.x ([www.libsdl.org](http://www.libsdl.org/)) in UNIX style; something like `./configure && make && make install`.
-Also you'll need:
-- `sdl2_ttf`: https://www.libsdl.org/projects/SDL_ttf/
-- `sdl2_gfx`: http://cms.ferzkopp.net/index.php/software/13-sdl-gfx
+The program can be compiled by the command "make" and then you can execute the file tetris_toy to launch the game (requires SDL library)
