@@ -1,7 +1,7 @@
 #include "tetris.h"
 
 
-void draw_playing_field() {
+void draw_playing_field() {                //done
 
     // loop var
     int i;

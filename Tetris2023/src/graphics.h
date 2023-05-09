@@ -1,4 +1,4 @@
-#include "defs.h"
+#include "defs.h"                             //all done
 
 extern SDL_Window *window;
 extern SDL_Renderer *render;
