@@ -35,9 +35,6 @@ typedef enum {
     UP,LEFT,RIGHT,DOWN
 } Tetris_Action;
 
-typedef enum {
-    BLUE,GREEN,PURPLE,WHITE,RED
-} Color_Block;
 
 // default tetris action
 // defines the action to apply to current tetromino

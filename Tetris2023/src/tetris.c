@@ -8,7 +8,7 @@ void draw_playing_field() {                //done
 
     // Set rendering clear color
     // This sets the 'background color'
-    SDL_SetRenderDrawColor(render, 204, 192, 179, 255);
+    SDL_SetRenderDrawColor(render, 255, 255, 255, 255);
 
     // Clear the render
     // 'set' background color defined in SDL_SetRenderDrawColor(...)
@@ -29,7 +29,7 @@ Uint32 auto_drop_timer(Uint32 interval, void *param) {
 }
 
 void initTetris() {
-
+    draw_playing_field();
 
 }
 

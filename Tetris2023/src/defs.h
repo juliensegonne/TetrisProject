@@ -13,7 +13,7 @@
 #ifndef _GLOBAL_CONSTANTS
 #define _GLOBAL_CONSTANTS
 
-#define WINDOW_TITLE "tetris"
+#define WINDOW_TITLE "TETRIS"
 
 // a block 'pixel' of a playing field is 15px by 15px in size
 #define BLOCK_SIZE 20
