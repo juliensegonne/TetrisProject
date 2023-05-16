@@ -32,7 +32,7 @@ typedef struct {
 } Tetromino_Movement;
 
 typedef enum {
-    UP,LEFT,RIGHT,DOWN
+    UP,LEFT,RIGHT,DOWN,ROTATE,RESTART,DROP
 } Tetris_Action;
 
 

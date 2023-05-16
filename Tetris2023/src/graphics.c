@@ -1,9 +1,7 @@
-#include "graphics.h"
+#include "graphics.h"   //done for the moment
 
                         
 void init_graphics() {                           //pas texture pas police
-    SDL_Window *window = NULL;
-    SDL_Renderer *renderer = NULL;
     int statut = EXIT_FAILURE;
     
     /* Initialisation, création de la fenêtre et du renderer. */
@@ -19,17 +17,14 @@ void init_graphics() {                           //pas texture pas police
         fprintf(stderr, "Erreur SDL_CreateWindow : %s", SDL_GetError());
         exit(1);
     }
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if(NULL == renderer)
+    render = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if(NULL == render)
     {
         fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
         exit(1);
     }
 }
 
-void setRenderChanged() {             //done
-    render_changed = true;
-}
 
 void preRender() {                               //done
 
@@ -41,19 +36,18 @@ void preRender() {                               //done
 void updateRender() {                                   //not necessary
 
     // lazily update the screen only if render operations are queued
-    if(render_changed) {
-        SDL_RenderPresent(render);
-        render_changed=false;
-    }
+
+    SDL_RenderPresent(render);
+
 }
 
-void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done
+void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done 
     int a = 255;
-
+    //printf("dans drawblock\n");
     SDL_Rect carre = {x*(BLOCK_SIZE+1)+1,y*(BLOCK_SIZE+1)+1,BLOCK_SIZE,BLOCK_SIZE};
     
     if (color==BLUE){ 
-        SDL_SetRenderDrawColor(render,0,0,255,a);}
+        SDL_SetRenderDrawColor(render,0,0,255,a);}   // on peut faire sxitch case 
     if (color==PURPLE){ 
         SDL_SetRenderDrawColor(render,105,0,170,a);}
     if (color==GREEN){ 
@@ -65,7 +59,7 @@ void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done
 
     
     SDL_RenderFillRect(render,&carre);
-    setRenderChanged();
+
 }
 
 void cleanup_graphics() {                      //done

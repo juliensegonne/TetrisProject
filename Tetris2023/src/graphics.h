@@ -24,7 +24,7 @@ void cleanup_graphics();
 
 void draw_block(uint8_t x, uint8_t y, Color_Block color);
 
-void setRenderChanged();
+
 void preRender();
 void updateRender();
 

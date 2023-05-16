@@ -15,7 +15,7 @@ int main(int argc, const char *argv[]) {
     }
 
     atexit(cleanup);
-
+    printf("init atteint\n");
     init();
 
     bool quit = false;
@@ -25,13 +25,16 @@ int main(int argc, const char *argv[]) {
 
         getInput();
 
-        updateTetris();
+        updateTetris();     //les calculs
 
-        updateRender();
+        draw_playing_field();
+
+        updateRender();     //affiche ce qu'il y a dans le renderer
 
         // Set to ~60 fps.
         // 1000 ms/ 60 fps = 1/16 s^2/frame
-        SDL_Delay(16);
+        SDL_Delay(16000);
+        break;
     }
 
     return 0;
