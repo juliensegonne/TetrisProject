@@ -1,7 +1,7 @@
 #include "main.h"             //all done
 
 int main(int argc, const char *argv[]) {
-
+    srand(time(0));
     // Start up SDL, and make sure it went ok
     //
     uint32_t flags = SDL_INIT_TIMER | SDL_INIT_VIDEO | SDL_INIT_EVENTS;
@@ -27,14 +27,12 @@ int main(int argc, const char *argv[]) {
 
         updateTetris();     //les calculs
 
-        draw_playing_field();
 
         updateRender();     //affiche ce qu'il y a dans le renderer
-
+        
+        SDL_Delay(40);
         // Set to ~60 fps.
         // 1000 ms/ 60 fps = 1/16 s^2/frame
-        SDL_Delay(16000);
-        break;
     }
 
     return 0;

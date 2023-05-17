@@ -1,3 +1,4 @@
+#pragma once
 #include "defs.h"                //all done
 
 #include "init.h"

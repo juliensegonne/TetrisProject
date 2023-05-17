@@ -1,3 +1,4 @@
+#pragma once
 #include "defs.h"           
 #include "utility.h"
 #include "shuffle.h"
@@ -7,32 +8,20 @@
 #ifndef _TETRIS_CONSTANTS
 #define _TETRIS_CONSTANTS
 
-typedef struct {
-
-    // an array of rotation schemes of a tetromino.
-    // each rotation scheme is represented as 16 bits which form 4x4 matrix.
-    // row-major order convention is used to interpret this matrix.
-    uint16_t rotation[4];
-
-    // RGBA convention: 0xAABBGGRR
-    uint32_t color;
-
-} Tetromino;
 
 typedef struct {
+    int x;
+    int y;
+} block;
 
-    Tetromino type;
+typedef struct {
+    block coords[4];
+    Color_Block couleur;
+} tetromino;
 
-    // expected values from 0 to 4 which are the indices of Tetromino.rotation
-    uint8_t rotation;
-
-    uint8_t x;
-    uint8_t y;
-
-} Tetromino_Movement;
 
 typedef enum {
-    UP,LEFT,RIGHT,DOWN,ROTATE,RESTART,DROP
+    UP,LEFT,RIGHT,DOWN,ROTATE,RESTART,DROP,AUTO_DROP,NONE
 } Tetris_Action;
 
 
@@ -50,7 +39,7 @@ extern Tetris_Action TETROMINO_ACTION;
 static uint8_t CURRENT_TETROMINO_COORDS[8] = {0};
 static uint8_t GHOST_TETROMINO_COORDS[8] = {0};
 
-static Tetromino_Movement CURRENT_TETROMINO;
+//static Tetromino_Movement CURRENT_TETROMINO;
 
 
 // bool array of the playfield.
@@ -83,13 +72,13 @@ static int score = 0;
 
 
 void draw_playing_field();
-Color_Block get_playfield(uint8_t x, uint8_t y);
-void set_playfield(uint8_t x, uint8_t y, Color_Block color);
+//Color_Block get_playfield(uint8_t x, uint8_t y);
+//void set_playfield(uint8_t x, uint8_t y, Color_Block color);
 
 void initTetris();
 void updateTetris();
 void lockTetromino();
 
 void spawn_tetromino();
-bool render_tetromino(Tetromino_Movement tetra_request, uint8_t current_coords[]);
-bool render_current_tetromino(Tetromino_Movement tetra_request);
+//bool render_tetromino(Tetromino_Movement tetra_request, uint8_t current_coords[]);
+//bool render_current_tetromino(Tetromino_Movement tetra_request);

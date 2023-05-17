@@ -10,7 +10,7 @@ extern TTF_Font *gFont;
 
 
 typedef enum {
-    BLUE,GREEN,PURPLE,WHITE,RED
+    BLUE,GREEN,PURPLE,WHITE,RED,ORANGE,CYAN,EMPTY
 } Color_Block;
 
 

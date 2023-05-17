@@ -56,6 +56,13 @@ void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done
         SDL_SetRenderDrawColor(render,255,255,255,a);}
     if (color==RED){ 
         SDL_SetRenderDrawColor(render,255,0,0,a);}
+    if (color==ORANGE){ 
+        SDL_SetRenderDrawColor(render,255,128,0,a);}
+    if (color==CYAN){ 
+        SDL_SetRenderDrawColor(render,0,255,255,a);}
+    if (color==EMPTY){ 
+        SDL_SetRenderDrawColor(render,40,40,40,a);}
+        
 
     
     SDL_RenderFillRect(render,&carre);
