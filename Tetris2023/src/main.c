@@ -1,5 +1,5 @@
 #include "main.h"             //all done
-
+int boucle;
 int main(int argc, const char *argv[]) {
     srand(time(0));
     // Start up SDL, and make sure it went ok
@@ -17,10 +17,11 @@ int main(int argc, const char *argv[]) {
     atexit(cleanup);
     printf("init atteint\n");
     init();
-
+    boucle =0;
     bool quit = false;
-    while(!quit) {
 
+    while(!quit) {
+        boucle++;
         preRender();
 
         getInput();
@@ -30,7 +31,6 @@ int main(int argc, const char *argv[]) {
 
         updateRender();     //affiche ce qu'il y a dans le renderer
         
-        SDL_Delay(40);
         // Set to ~60 fps.
         // 1000 ms/ 60 fps = 1/16 s^2/frame
     }

@@ -23,6 +23,11 @@ void init_graphics() {                           //pas texture pas police
         fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
         exit(1);
     }
+
+    
+
+
+
 }
 
 
@@ -67,6 +72,43 @@ void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done
     
     SDL_RenderFillRect(render,&carre);
 
+}
+
+void draw_score(int score){
+    TTF_Font* font;
+    font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 30);
+    if(font != 0){
+        SDL_Color violet = {174, 55, 255}; //attention ce n'est pas un Uint32
+        char scoreString[20];
+        sprintf(scoreString,"%d",score);
+	    SDL_Surface* texte = TTF_RenderText_Blended(font, scoreString, violet) ;
+        SDL_Texture* texturedetexte = SDL_CreateTextureFromSurface(render, texte);
+
+        SDL_Rect rectNoir = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1)+10,60,140,50};
+        SDL_SetRenderDrawColor(render,0,0,0,255);
+        SDL_RenderFillRect(render,&rectNoir);
+
+        if (score==0) {
+            SDL_Rect rectScore = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1)+115,60,35,50};
+            SDL_RenderCopy(render, texturedetexte,NULL,&rectScore);
+        }
+        else {
+            SDL_Rect rectScore = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1)+10,60,140,50};
+            SDL_RenderCopy(render, texturedetexte,NULL,&rectScore);
+        }
+    }   
+}
+
+void draw_background(){
+    TTF_Font* font;
+    font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 30);
+    if(font != 0){
+        SDL_Color violet = {174, 55, 255}; //attention ce n'est pas un Uint32
+	    SDL_Surface* texte = TTF_RenderText_Blended(font, "SCORE :", violet) ;
+        SDL_Texture* texturedetexte = SDL_CreateTextureFromSurface(render, texte);
+        SDL_Rect rectScore = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1)+10,5,180,50};
+        SDL_RenderCopy(render, texturedetexte,NULL,&rectScore);
+    }   
 }
 
 void cleanup_graphics() {                      //done

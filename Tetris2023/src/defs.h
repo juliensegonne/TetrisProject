@@ -6,6 +6,7 @@
 #include <time.h>
 #include <assert.h>
 #include <stdbool.h>
+//#include "SDL_mixer.h"
 #include "sds.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
@@ -24,6 +25,6 @@
 #define PLAYFIELD_WIDTH 10
 
 #define WINDOW_HEIGHT PLAYFIELD_HEIGHT * (BLOCK_SIZE + 1) + 1
-#define WINDOW_WIDTH PLAYFIELD_WIDTH * (BLOCK_SIZE + 1) + 1
+#define WINDOW_WIDTH PLAYFIELD_WIDTH * (BLOCK_SIZE + 1) + 1 + 200
 
 #endif

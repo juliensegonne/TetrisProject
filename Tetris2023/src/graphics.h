@@ -6,8 +6,7 @@
 extern SDL_Window *window;
 extern SDL_Renderer *render;
 extern SDL_Texture *display;
-extern TTF_Font *gFont;
-
+extern TTF_Font* font;
 
 typedef enum {
     BLUE,GREEN,PURPLE,WHITE,RED,ORANGE,CYAN,EMPTY
@@ -23,7 +22,8 @@ void cleanup_graphics();
 
 
 void draw_block(uint8_t x, uint8_t y, Color_Block color);
-
+void draw_score(int score);
+void draw_background();
 
 void preRender();
 void updateRender();

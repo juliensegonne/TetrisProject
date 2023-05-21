@@ -3,7 +3,7 @@
 #include "utility.h"
 #include "shuffle.h"
 #include "graphics.h"
-
+extern int boucle;
 
 #ifndef _TETRIS_CONSTANTS
 #define _TETRIS_CONSTANTS
@@ -66,7 +66,6 @@ static uint8_t current_queue_index = 0;
 
 static SDL_TimerID cb_timer = 0;
 
-static int score = 0;
 
 #endif
 
