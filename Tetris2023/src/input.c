@@ -1,6 +1,6 @@
 #include "input.h"
 
-void getInput() {     // cp cl mais c'est tout le temps pareil
+void getInput() {                                 // get the inputs from the keyboard
     SDL_Event event;
 
     /* Loop through waiting messages and process them */

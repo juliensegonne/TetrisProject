@@ -1,7 +1,7 @@
-#include "graphics.h"   //done for the moment
+#include "graphics.h"
 
                         
-void init_graphics() {                           //pas texture pas police
+void init_graphics() {                 
     int statut = EXIT_FAILURE;
     
     /* Initialisation, création de la fenêtre et du renderer. */
@@ -24,6 +24,20 @@ void init_graphics() {                           //pas texture pas police
         exit(1);
     }
 
+
+
+
+    // Initialisation of SDL_Mixer
+    SDL_Init(SDL_INIT_VIDEO);
+    if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur initialisation SDL_mixer : %s", Mix_GetError());
+        exit(1);
+    }
+
+    Mix_Music* music = Mix_LoadMUS("/home/sdl/Bureau/In104Projet/Tetris2023/src/song.mp3"); // load the song
+
+    Mix_PlayMusic(music, -1); // play the song
     
 
 
@@ -31,14 +45,14 @@ void init_graphics() {                           //pas texture pas police
 }
 
 
-void preRender() {                               //done
+void preRender() {
 
     SDL_SetRenderTarget(render, display);
 
 
 }
 
-void updateRender() {                                   //not necessary
+void updateRender() {
 
     // lazily update the screen only if render operations are queued
 
@@ -46,13 +60,13 @@ void updateRender() {                                   //not necessary
 
 }
 
-void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done 
-    int a = 255;
-    //printf("dans drawblock\n");
-    SDL_Rect carre = {x*(BLOCK_SIZE+1)+1,y*(BLOCK_SIZE+1)+1,BLOCK_SIZE,BLOCK_SIZE};
+void draw_block(uint8_t x, uint8_t y, Color_Block color) { 
+    int a = 255;       //opacity
+
+    SDL_Rect carre = {x*(BLOCK_SIZE+1)+1,y*(BLOCK_SIZE+1)+1,BLOCK_SIZE,BLOCK_SIZE};      // define a square
     
     if (color==BLUE){ 
-        SDL_SetRenderDrawColor(render,0,0,255,a);}   // on peut faire sxitch case 
+        SDL_SetRenderDrawColor(render,0,0,255,a);}
     if (color==PURPLE){ 
         SDL_SetRenderDrawColor(render,105,0,170,a);}
     if (color==GREEN){ 
@@ -70,11 +84,11 @@ void draw_block(uint8_t x, uint8_t y, Color_Block color) {      //done
         
 
     
-    SDL_RenderFillRect(render,&carre);
+    SDL_RenderFillRect(render,&carre);                                 // fill the square with the chosen color
 
 }
 
-void draw_score(int score){
+void draw_score(int score){                                   // display the score on the right of the playing field
     TTF_Font* font;
     font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 30);
     if(font != 0){
@@ -103,7 +117,7 @@ void draw_background(){
     TTF_Font* font;
     font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 30);
     if(font != 0){
-        SDL_Color violet = {174, 55, 255}; //attention ce n'est pas un Uint32
+        SDL_Color violet = {174, 55, 255};
 	    SDL_Surface* texte = TTF_RenderText_Blended(font, "SCORE :", violet) ;
         SDL_Texture* texturedetexte = SDL_CreateTextureFromSurface(render, texte);
         SDL_Rect rectScore = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1)+10,5,180,50};
@@ -111,7 +125,7 @@ void draw_background(){
     }   
 }
 
-void cleanup_graphics() {                      //done
+void cleanup_graphics() {              
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(window);
 }

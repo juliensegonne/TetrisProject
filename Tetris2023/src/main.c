@@ -1,4 +1,4 @@
-#include "main.h"             //all done
+#include "main.h"
 int boucle;
 int main(int argc, const char *argv[]) {
     srand(time(0));

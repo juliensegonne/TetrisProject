@@ -1,5 +1,5 @@
 #pragma once
-#include "defs.h"                    //all done
+#include "defs.h"
 #include "graphics.h"
 #include "tetris.h"
 

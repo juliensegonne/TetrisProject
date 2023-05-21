@@ -1,7 +1,6 @@
 #pragma once
 #include "defs.h"           
 #include "utility.h"
-#include "shuffle.h"
 #include "graphics.h"
 extern int boucle;
 
