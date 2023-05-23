@@ -76,7 +76,12 @@ void elimligne() {
 }
 
 void updateTetris() {
-    SDL_Delay(100);
+    if(hardMode) {
+        SDL_Delay(80);
+    }
+    else {
+        SDL_Delay(100);
+    }
     draw_playing_field();    
     draw_background();
     if (TETROMINO_ACTION == RIGHT) {
@@ -173,7 +178,10 @@ void updateTetris() {
         hardMode = !hardMode;
     }
 
-    if (boucle%5 ==0) {
+    /*if we are in the hard mode, the player can do only one action (rotation,translation...) before the tetromino is going down 
+     in normal mode, he can do 5 actions, that's why we translate the tetromnio down only one in five time*/
+
+    if (boucle%5 ==0 || hardMode) { 
         for (int i =0; i<4;i++) {
             tetrominoFutur.coords[i].y = tetrominoCourant.coords[i].y +1;
             tetrominoFutur.coords[i].x = tetrominoCourant.coords[i].x ;
