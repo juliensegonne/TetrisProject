@@ -1,5 +1,7 @@
 #include "main.h"
 int boucle;
+bool hardMode;
+
 int main(int argc, const char *argv[]) {
     srand(time(0));
     // Start up SDL, and make sure it went ok
@@ -26,7 +28,7 @@ int main(int argc, const char *argv[]) {
 
         getInput();
 
-        updateTetris();     //les calculs
+        updateTetris(); 
 
 
         updateRender();     //affiche ce qu'il y a dans le renderer

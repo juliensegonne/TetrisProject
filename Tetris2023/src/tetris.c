@@ -8,7 +8,8 @@ tetromino tetrominoFutur;
 int score;
 
 
-void draw_playing_field() {                //done
+
+void draw_playing_field() {                
 
     for (int x=0;x<PLAYFIELD_WIDTH;x++){
         for (int y=0;y<PLAYFIELD_HEIGHT;y++){
@@ -26,6 +27,7 @@ void initTetris() {
         }
     }
     score = 0;
+    hardMode = false;
     draw_score(score);
     spawn_tetromino();
 }
@@ -173,6 +175,10 @@ void updateTetris() {
         if (positionFuturePossible) {
             tetrominoCourant = tetrominoFutur;
         }
+    }
+
+    if (TETROMINO_ACTION == DROP) {
+        hardMode = !hardMode;
     }
 
     if (boucle%5 ==0) {

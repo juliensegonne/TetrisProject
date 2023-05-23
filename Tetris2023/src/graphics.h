@@ -7,6 +7,7 @@ extern SDL_Window *window;
 extern SDL_Renderer *render;
 extern SDL_Texture *display;
 extern TTF_Font* font;
+extern bool hardMode;
 
 typedef enum {
     BLUE,GREEN,PURPLE,WHITE,RED,ORANGE,CYAN,EMPTY

@@ -3,6 +3,7 @@
 #include "utility.h"
 #include "graphics.h"
 extern int boucle;
+extern bool hardMode;
 
 #ifndef _TETRIS_CONSTANTS
 #define _TETRIS_CONSTANTS

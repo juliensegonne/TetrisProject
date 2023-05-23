@@ -3,7 +3,7 @@ LDFLAGS  = `sdl2-config --libs` -lSDL2_gfx -lSDL2_ttf -lm
 PROG = tetris_toy
 CXX = gcc
 
-OBJS   = init.o input.o graphics.o tetris.o shuffle.o sds.o utility.o main.o
+OBJS   = init.o input.o graphics.o tetris.o sds.o utility.o main.o
 
 # top-level rule to create the program.
 all: $(PROG)
