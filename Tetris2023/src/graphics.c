@@ -193,7 +193,7 @@ void draw_background()
     }
 }
 
-void printGameOver(){                  //message GAME OVER at the ende of the game
+void printGameOver(){                  //message GAME OVER at the end of the game
     TTF_Font *font;
     font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 60);
     SDL_SetRenderDrawColor(render, 255, 0,0, 255);
