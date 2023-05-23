@@ -147,15 +147,15 @@ void draw_score(int score)
     {
             SDL_Color violet = {174, 55, 255};
             char scoreString[20];
-            sprintf(scoreString, "%d", score);
+            sprintf(scoreString, "%d", score);      //conversion of the int score into a string scoreString
             SDL_Surface *texte = TTF_RenderText_Blended(font, scoreString, violet);
             SDL_Texture *texturedetexte = SDL_CreateTextureFromSurface(render, texte);
 
-            SDL_Rect rectNoir = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1) + 10, 60, 140, 50};
+            SDL_Rect rectNoir = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1) + 10, 60, 140, 50}; 
             SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
-            SDL_RenderFillRect(render, &rectNoir);
+            SDL_RenderFillRect(render, &rectNoir);  //we display a black rectangle before displaying the score because otherwise the differents scores are overlapping
 
-            if (score == 0)
+            if (score == 0) //if the score is 0 there is only one digit to display, if we display it with the same width as 1000, the 0 is deformed and too wide
             {
                 SDL_Rect rectScore = {PLAYFIELD_WIDTH * (BLOCK_SIZE + 1) + 115, 60, 35, 50};
                 SDL_RenderCopy(render, texturedetexte, NULL, &rectScore);
@@ -168,7 +168,7 @@ void draw_score(int score)
     }
 }
 
-void draw_background()
+void draw_background()  //draws the right side of the window, only executed once in the tetris.c
 {
     TTF_Font *font;
     font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 30);
@@ -197,7 +197,7 @@ void printGameOver(){                  //message GAME OVER at the end of the gam
     TTF_Font *font;
     font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 60);
     SDL_SetRenderDrawColor(render, 255, 0,0, 255);
-    SDL_RenderClear(render);
+    SDL_RenderClear(render);    //red background
     if (font != 0)
     {        
         SDL_Color noir = {0,0,0};

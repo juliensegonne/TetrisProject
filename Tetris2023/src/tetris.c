@@ -9,7 +9,7 @@ int score;
 
 
 
-void draw_playing_field() {                
+void draw_playing_field() {  //draws all cells of the array Tab     
 
     for (int x=0;x<PLAYFIELD_WIDTH;x++){
         for (int y=0;y<PLAYFIELD_HEIGHT;y++){
@@ -54,8 +54,8 @@ void elimligne() {
                 ligneRemplie = false;
             }
         }
-        if (ligneRemplie) {
-            score = score+1000;
+        if (ligneRemplie) {   // when a line is completed, we update the score and translate down the lines of the array that were above the full line 
+            score = score+1000;     
             for (int j=y;j>=0;j--){
                 if (j==0){
                     for (int i=0;i<PLAYFIELD_WIDTH;i++){
@@ -69,7 +69,7 @@ void elimligne() {
                     }
                 }
             }
-            draw_score(score);
+            draw_score(score); //we update the display of the score only when a line is completed
         }
 
     }
@@ -138,20 +138,19 @@ void updateTetris() {
     if (TETROMINO_ACTION == ROTATE) {
         tetrominoFutur = tetrominoCourant;
         int temp;
-//centrage
     
-        for (int i =0; i<4;i++) {
+        for (int i =0; i<4;i++) {   //center the tetromino
             tetrominoFutur.coords[i].y = tetrominoFutur.coords[i].y - tetrominoCourant.coords[0].y ;
             tetrominoFutur.coords[i].x = tetrominoFutur.coords[i].x - tetrominoCourant.coords[0].x ;
         }
-//rotation
-        for (int i =0; i<4;i++) {
+
+        for (int i =0; i<4;i++) {  //rotate the tetromino according to the rotation matrix
             temp = tetrominoFutur.coords[i].x ;
             tetrominoFutur.coords[i].x = -tetrominoFutur.coords[i].y ;
             tetrominoFutur.coords[i].y = temp ;
         }
-        //remet a la place
-        for (int i =0; i<4;i++) {
+        
+        for (int i =0; i<4;i++) { //replace the tetromino at its original place
             tetrominoFutur.coords[i].y = tetrominoFutur.coords[i].y + tetrominoCourant.coords[0].y ;
             tetrominoFutur.coords[i].x = tetrominoFutur.coords[i].x + tetrominoCourant.coords[0].x ;
         }
@@ -189,11 +188,11 @@ void updateTetris() {
             }
         }
 
-        if (positionFuturePossible) {
+        if (positionFuturePossible) { // if the position below the current tetromino is free, we translate it
             tetrominoCourant = tetrominoFutur;
         }
 
-        else {
+        else { //else, we lock it in the array and check if it completes a line
             lockTetromino(tetrominoCourant);
             elimligne();
         }
@@ -292,7 +291,7 @@ void spawn_tetromino() {
             }
         }
     
-    if (!spawnPossible) {
+    if (!spawnPossible) {  //if its not possible to spawn a tetromino, the game is lost, it displays "GAME OVER" on full screen and automatically exit after 3 seconds
         printGameOver();
         SDL_RenderPresent(render);
         SDL_Delay(3000);

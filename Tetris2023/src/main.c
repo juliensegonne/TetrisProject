@@ -3,7 +3,9 @@ int boucle;
 bool hardMode;
 
 int main(int argc, const char *argv[]) {
-    srand(time(0));
+
+    srand(time(0));   //initiate to the current time to have a good randomness
+
     // Start up SDL, and make sure it went ok
     //
     uint32_t flags = SDL_INIT_TIMER | SDL_INIT_VIDEO | SDL_INIT_EVENTS;
@@ -31,9 +33,6 @@ int main(int argc, const char *argv[]) {
 
 
         updateRender();     //affiche ce qu'il y a dans le renderer
-        
-        // Set to ~60 fps.
-        // 1000 ms/ 60 fps = 1/16 s^2/frame
     }
 
     return 0;
