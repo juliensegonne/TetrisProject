@@ -45,13 +45,6 @@ void affichageTetr(tetromino tetr) {
     }
 }
 
-void translatTetr(tetromino tetr,int dx,int dy) {   //marche pas... faille dans le non passage par adresse ?
-    for (int i =0; i<4;i++) {
-        tetr.coords[i].x = tetr.coords[i].x +dx;
-        tetr.coords[i].y = tetr.coords[i].y +dy;
-    }
-}
-
 void elimligne() {
     bool ligneRemplie;
     for (int y=0;y<PLAYFIELD_HEIGHT;y++){
@@ -300,8 +293,7 @@ void spawn_tetromino() {
         }
     
     if (!spawnPossible) {
-        SDL_SetRenderDrawColor(render, 255, 0,0, 255);
-        SDL_RenderClear(render);
+        printGameOver();
         SDL_RenderPresent(render);
         SDL_Delay(3000);
         exit(0);

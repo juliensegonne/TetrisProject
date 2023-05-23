@@ -29,3 +29,5 @@ void draw_background();
 void preRender();
 void updateRender();
 
+void printGameOver();
+

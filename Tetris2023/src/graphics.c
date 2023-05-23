@@ -189,6 +189,21 @@ void draw_background()
     }
 }
 
+void printGameOver(){                  //message GAME OVER at the ende of the game
+    TTF_Font *font;
+    font = TTF_OpenFont("/home/sdl/Bureau/In104Projet/Tetris2023/src/font/Inconsolata-Regular.ttf", 60);
+    SDL_SetRenderDrawColor(render, 255, 0,0, 255);
+    SDL_RenderClear(render);
+    if (font != 0)
+    {        
+        SDL_Color noir = {0,0,0};
+        SDL_Surface *texte4 = TTF_RenderText_Blended(font, "GAME OVER !", noir);
+        SDL_Texture *texturedetexte4 = SDL_CreateTextureFromSurface(render, texte4);
+        SDL_Rect rectScore4 = {50, 100, 300, 80};
+        SDL_RenderCopy(render, texturedetexte4, NULL, &rectScore4);}
+}
+
+
 void cleanup_graphics()
 {
     SDL_DestroyRenderer(render);
