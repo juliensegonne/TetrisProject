@@ -8,3 +8,4 @@ It is falling and can be controlled with the keyboard.
 The program can be compiled by the command "make" and then you can execute the file tetris_toy to launch the game (requires SDL library).
 
 There is a hard mode which can be activated by pressing SPACE.
+Don't forget to put the sound up.

@@ -10,11 +10,11 @@ all: $(PROG)
 
 # compiling other source files.
 %.o: src/%.c src/%.h src/defs.h
-	$(CXX) $(CFLAGS) -c $<
+	$(CXX) $(CFLAGS) -c -lSDL2_mixer $<
 
 # linking the program
 $(PROG): $(OBJS)
-	$(CXX) $(OBJS) -o $(PROG) $(LDFLAGS)
+	$(CXX) $(OBJS) -o $(PROG) $(LDFLAGS) -lSDL2_mixer
 
 # cleaning everything that can be automatically recreated with "make"
 clean:

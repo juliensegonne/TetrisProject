@@ -21,6 +21,8 @@ void cleanup() {
 
     TTF_Quit();
 
+    Mix_CloseAudio();       //close SDL_mixer
+
     // Shut down SDL
     SDL_Quit();
 }

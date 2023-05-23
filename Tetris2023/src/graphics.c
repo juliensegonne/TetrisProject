@@ -1,5 +1,7 @@
 #include "graphics.h"
 
+
+
 void init_graphics()
 {
     int statut = EXIT_FAILURE;
@@ -24,20 +26,22 @@ void init_graphics()
         exit(1);
     }
 
-    /*
-        // Initialisation of SDL_Mixer
-        SDL_Init(SDL_INIT_VIDEO);
-        if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
-        {
-            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur initialisation SDL_mixer : %s", Mix_GetError());
-            exit(1);
-        }
+    // Initialisation of SDL_Mixer
+    SDL_Init(SDL_INIT_VIDEO);
+    
+    if (Mix_Init(MIX_INIT_MP3)<0){
+        printf("Erreur initialisation de SDL_mixer : %s\n",Mix_GetError());
+    }
+    
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur initialisation SDL_mixer : %s", Mix_GetError());
+        exit(1);
+    }
 
-        Mix_Music* music = Mix_LoadMUS("/home/sdl/Bureau/In104Projet/Tetris2023/src/song.mp3"); // load the song
+    Mix_Music *music = Mix_LoadMUS("/home/sdl/Bureau/In104Projet/Tetris2023/src/song.mp3"); // load the song
 
-        Mix_PlayMusic(music, -1); // play the song
-
-    */
+    Mix_PlayMusic(music, -1); // play the song
 }
 
 void preRender()

@@ -6,7 +6,8 @@
 #include <time.h>
 #include <assert.h>
 #include <stdbool.h>
-#include <SDL_mixer.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include "sds.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
