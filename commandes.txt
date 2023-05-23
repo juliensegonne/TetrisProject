@@ -1,1 +1,0 @@
-gcc decouverteSDL.c $(sdl2-config --cflags --libs)                   //compiler avec la SDL
